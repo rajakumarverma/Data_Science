@@ -1,4 +1,4 @@
-### **Statistics Cheat Sheet: Key Concepts & Techniques**
+### **Statistics : Key Concepts & Techniques**
 
 ---
 
