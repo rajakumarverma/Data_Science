@@ -90,6 +90,13 @@ name = "Alice"
 `int`, `float`, `str`, `bool`, `list`, `tuple`, `dict`, `set`, `None`
 
 ---
+| Type    | Example         | Description                      |
+| ------- | --------------- | -------------------------------- |
+| `int`   | `10`, `-5`      | Integer numbers                  |
+| `float` | `3.14`, `-0.01` | Decimal (floating-point) numbers |
+| `str`   | `'Hello'`       | Text (string)                    |
+| `bool`  | `True`, `False` | Boolean values (True or False)   |
+
 
 ## 4. Type Checking
 
