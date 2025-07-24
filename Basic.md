@@ -85,14 +85,6 @@ name = "Alice"
 
 ---
 
-## 2. Variable Naming Rules
-
-- Start with letter or `_`
-- Use letters, numbers, and `_`
-- Case-sensitive, no keywords
-
----
-
 ## 3. Data Types
 
 `int`, `float`, `str`, `bool`, `list`, `tuple`, `dict`, `set`, `None`
