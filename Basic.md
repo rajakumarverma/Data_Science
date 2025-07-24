@@ -87,9 +87,12 @@ name = "Alice"
 
 ## 3. Data Types
 
-`int`, `float`, `str`, `bool`, `list`, `tuple`, `dict`, `set`, `None`
+Python has several **built-in data types** used to store different kinds of values. Here's an overview:
 
 ---
+
+### 📦 1. **Basic Data Types**
+
 | Type    | Example         | Description                      |
 | ------- | --------------- | -------------------------------- |
 | `int`   | `10`, `-5`      | Integer numbers                  |
@@ -97,14 +100,55 @@ name = "Alice"
 | `str`   | `'Hello'`       | Text (string)                    |
 | `bool`  | `True`, `False` | Boolean values (True or False)   |
 
-
-## 4. Type Checking
-
 ```python
-type(x)           # <class 'int'>
-isinstance(x, int) # True
+a = 10        # int
+b = 3.14      # float
+c = "Python"  # str
+d = True      # bool
 ```
 
+---
+
+### 📚 2. **Collection Data Types**
+
+| Type    | Example                        | Description                      |
+| ------- | ------------------------------ | -------------------------------- |
+| `list`  | `[1, 2, 3]`                    | Ordered, changeable collection   |
+| `tuple` | `(1, 2, 3)`                    | Ordered, unchangeable collection |
+| `set`   | `{1, 2, 3}`                    | Unordered, no duplicates         |
+| `dict`  | `{"name": "Alice", "age": 25}` | Key-value pairs                  |
+
+```python
+my_list = [1, 2, 3]                 # list
+my_tuple = (1, 2, 3)                # tuple
+my_set = {1, 2, 3}                  # set
+my_dict = {"name": "Alice", "age": 25}  # dict
+```
+
+---
+
+### 🔧 3. **Special Types**
+
+| Type       | Example  | Description                             |
+| ---------- | -------- | --------------------------------------- |
+| `NoneType` | `None`   | Represents the absence of a value       |
+| `complex`  | `3 + 4j` | Complex numbers (used in advanced math) |
+
+```python
+x = None       # NoneType
+z = 3 + 4j     # complex
+```
+
+---
+
+## 🧪 4. **Type Checking**
+
+Use the `type()` function to check the data type:
+
+```python
+x = 42
+print(type(x))   # <class 'int'>
+```
 ---
 
 ## 5. Type Casting
