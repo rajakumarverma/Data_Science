@@ -311,11 +311,6 @@ def square(x):
 
 print(square(4))       # 16
 ```
-
----
-
-Sure! Here’s a **detailed list** with explanations and code examples for topics **31 to 65** in clear, simple language:
-
 ---
 
 ### 31. File Reading (`r`)
@@ -792,8 +787,3 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
----
-
-If you want, I can create a PDF or an image poster for this detailed list too! Just let me know.
-
