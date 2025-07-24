@@ -1,7 +1,4 @@
-# 🐍 Python Basics Cheat Sheet
-
-> Outputs are shown right inside the code blocks as comments for clarity.
-
+# 🐍 Python Basics Concepts
 ---
 
 ## 1. Variable Assignment
