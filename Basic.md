@@ -4,7 +4,7 @@
 
 In Python, **variables** are used to store data. **Variable assignment** means assigning a value to a variable name so it can be used later in your code.
 
-### 🔹 Basic Syntax
+###  Basic Syntax
 
 ```python
 variable_name = value
@@ -22,7 +22,7 @@ name = "Alice"
 is_active = True
 ```
 
-### 🔹 Rules for Naming Variables
+## 2. Variable Naming Rules
 
 * Must start with a letter (a–z, A–Z) or underscore (`_`)
 * Cannot start with a number
@@ -44,7 +44,7 @@ score2 = 87
 for = "loop"      # "for" is a keyword
 ```
 
-### 🔹 Multiple Assignments
+###  Multiple Assignments
 
 Python allows multiple assignments in one line:
 
@@ -58,7 +58,7 @@ All assigned to the same value:
 x = y = z = 0
 ```
 
-### 🔹 Swapping Variables
+###  Swapping Variables
 
 Python lets you swap variables without a temporary variable:
 
@@ -68,7 +68,7 @@ b = 10
 a, b = b, a
 ```
 
-### 🔹 Dynamic Typing
+###  Dynamic Typing
 
 Python is dynamically typed, so you don't declare types explicitly:
 
