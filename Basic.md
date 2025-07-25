@@ -426,43 +426,272 @@ print(f"Welcome, {name}! 🎉")
 
 ## 8. String Indexing
 
+**String indexing** allows you to access individual characters in a string using their **position (index)**.
+
+---
+
+## 🔹 How Indexing Works
+
+In Python, strings are ordered sequences of characters.
+Each character has a position (index), starting from **0**.
+
 ```python
-s = "Python"
-print(s[0], s[-1])     # P n
+text = "Python"
+# Index:    0 1 2 3 4 5
+# Reverse: -6-5-4-3-2-1
 ```
 
+---
+
+## ✅ Accessing Characters
+
+```python
+text = "Python"
+print(text[0])   # P
+print(text[3])   # h
+print(text[-1])  # n (last character)
+```
+
+---
+
+## 🛑 Index Out of Range
+
+Accessing an index that doesn't exist will raise an error:
+
+```python
+print(text[10])  # IndexError
+```
+
+---
+
+## 🔄 Looping Through a String (Optional)
+
+```python
+for char in "Hi":
+    print(char)
+```
+
+---
+
+## 🔍 Use Case: First and Last Letters
+
+```python
+word = "apple"
+print("First:", word[0])
+print("Last:", word[-1])
+```
+
+---
+
+## 🔐 Strings Are Immutable
+
+You **cannot** change a character by index directly:
+
+```python
+text = "Hello"
+# text[0] = "Y"  ❌ This gives TypeError
+```
+
+But you can create a new string:
+
+```python
+text = "Hello"
+new_text = "Y" + text[1:]  # "Yello"
+print(new_text)
+```
 ---
 
 ## 9. String Slicing
 
+**String slicing** allows you to extract a part (substring) of a string using **start**, **end**, and **step** values.
+
+---
+
+## 🔹 Syntax
+
 ```python
-print(s[1:4])          # yth
-print(s[:3])           # Pyt
-print(s[3:])           # hon
+string[start:end:step]
 ```
 
+* `start`: index to begin (inclusive)
+* `end`: index to stop (exclusive)
+* `step`: how many steps to move (optional)
+
+---
+
+## ✅ Examples
+
+```python
+text = "Python"
+
+print(text[0:2])     # 'Py'      (index 0 and 1)
+print(text[1:4])     # 'yth'     (index 1 to 3)
+print(text[:3])      # 'Pyt'     (from start to index 2)
+print(text[3:])      # 'hon'     (from index 3 to end)
+print(text[:])       # 'Python'  (full copy)
+```
+
+---
+
+## 🔄 Step Slicing
+
+```python
+print(text[::2])     # 'Pto'  (every 2nd character)
+print(text[::-1])    # 'nohtyP' (reversed string)
+```
+
+---
+
+## 🔍 Negative Indexes Work Too
+
+```python
+print(text[-4:-1])   # 'tho'
+```
+
+---
+
+## 📦 Real Example
+
+```python
+word = "Programming"
+print(word[3:8])     # 'gramm'
+print(word[-5:])     # 'mming'
+print(word[::-1])    # 'gnimmargorP'
+```
+
+---
+
+## ❗ Remember
+
+* `text[a:b]` gives characters from index `a` to `b-1`
+* It doesn't raise an error if indexes go out of range:
+
+  ```python
+  print(text[0:100])  # returns up to end if 100 is too big
+  ```
 ---
 
 ## 10. String Methods
 
+Python provides **built-in methods** to work with strings easily. These methods do **not change the original string** (strings are immutable); they return **new strings**.
+
+---
+
+## 🔹 Commonly Used String Methods
+
+| Method              | Description                             | Example                                  |
+| ------------------- | --------------------------------------- | ---------------------------------------- |
+| `lower()`           | Converts to lowercase                   | `"PYTHON".lower()` → `'python'`          |
+| `upper()`           | Converts to uppercase                   | `"python".upper()` → `'PYTHON'`          |
+| `title()`           | Capitalizes first letter of each word   | `"hello world".title()`                  |
+| `strip()`           | Removes leading/trailing whitespace     | `"  hello  ".strip()` → `'hello'`        |
+| `replace(old, new)` | Replaces substring                      | `"car".replace("c", "b")` → `'bar'`      |
+| `find(sub)`         | Returns index of first occurrence       | `"hello".find("l")` → `2`                |
+| `count(sub)`        | Counts occurrences                      | `"hello".count("l")` → `2`               |
+| `startswith(sub)`   | Checks if starts with substring         | `"hello".startswith("he")`               |
+| `endswith(sub)`     | Checks if ends with substring           | `"hello".endswith("lo")`                 |
+| `split(delimiter)`  | Splits into a list                      | `"a,b,c".split(",")` → `['a', 'b', 'c']` |
+| `join(iterable)`    | Joins elements with string as separator | `"-".join(['a','b'])` → `'a-b'`          |
+
+---
+
+## ✅ Examples
+
 ```python
-"hello".upper()         # HELLO
-"HELLO".lower()         # hello
-"abc".replace("a", "z") # zbc
+text = "  Python Programming  "
+
+print(text.lower())        # '  python programming  '
+print(text.strip())        # 'Python Programming'
+print(text.title())        # 'Python Programming'
+print(text.replace("Python", "Java"))  # '  Java Programming  '
+print(text.find("Prog"))   # 9
 ```
 
 ---
 
-## 11. Arithmetic Operators
+## 🔄 Example: Splitting and Joining
 
 ```python
-7 + 3     # 10
-7 / 3     # 2.3333
-7 // 3    # 2
-7 % 3     # 1
-2 ** 3    # 8
+sentence = "apple,banana,grape"
+fruits = sentence.split(",")     # ['apple', 'banana', 'grape']
+print(fruits)
+
+joined = "-".join(fruits)        # 'apple-banana-grape'
+print(joined)
 ```
 
+---
+
+## ✅ Boolean String Methods (Return True/False)
+
+```python
+text = "Hello123"
+
+print(text.isalpha())    # False (contains digits)
+print(text.isdigit())    # False
+print("123".isdigit())   # True
+print("abc".isalpha())   # True
+```
+---
+
+## 11. Arithmetic Operators
+
+Python supports all basic **arithmetic operations** using special symbols called **operators**.
+
+---
+
+## 🔹 List of Arithmetic Operators
+
+| Operator | Description         | Example (`a = 10`, `b = 3`) | Result     |
+| -------- | ------------------- | --------------------------- | ---------- |
+| `+`      | Addition            | `a + b`                     | `13`       |
+| `-`      | Subtraction         | `a - b`                     | `7`        |
+| `*`      | Multiplication      | `a * b`                     | `30`       |
+| `/`      | Division (float)    | `a / b`                     | `3.333...` |
+| `//`     | Floor Division      | `a // b`                    | `3`        |
+| `%`      | Modulus (Remainder) | `a % b`                     | `1`        |
+| `**`     | Exponentiation      | `a ** b`                    | `1000`     |
+
+---
+
+## ✅ Examples
+
+```python
+a = 10
+b = 3
+
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a / b)   # 3.333...
+print(a // b)  # 3 (whole number division)
+print(a % b)   # 1 (remainder)
+print(a ** b)  # 1000 (10 to the power of 3)
+```
+
+---
+
+## 🔍 Note on Division
+
+* `/` always returns a `float`, even if the result is a whole number:
+
+  ```python
+  print(6 / 2)   # 3.0
+  ```
+* `//` returns an `int` if both operands are `int`, or `float` if any operand is `float`.
+
+---
+
+## 🧠 Combine with `input()` Example
+
+```python
+x = int(input("Enter a number: "))
+y = int(input("Enter another number: "))
+
+print(f"Sum = {x + y}")
+print(f"Product = {x * y}")
+print(f"Power = {x ** y}")
+```
 ---
 
 ## 12. Comparison Operators
