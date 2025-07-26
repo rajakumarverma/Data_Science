@@ -1,8 +1,4 @@
-Sure! Here's the **Python Basics Cheat Sheet** where the **output is shown right inside each code block as comments**, making it clear and compact for each concept:
-
----
-
-## Python Basics Cheat Sheet with Outputs in Code
+## Python Basics Concepts
 
 ---
 
@@ -313,10 +309,6 @@ def square(x):
   return x * x
 print(square(4))     # 16
 ```
-
----
-
-Sure! Here’s a **detailed list** with explanations and code examples for topics **31 to 65** in clear, simple language:
 
 ---
 
