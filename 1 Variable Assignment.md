@@ -84,5 +84,3 @@ Python is dynamically typed, so you don't declare types explicitly:
 x = 10       # x is an int
 x = "Hello"  # now x is a str
 ```
-
----
