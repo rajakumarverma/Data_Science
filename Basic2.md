@@ -946,30 +946,6 @@ def profile(name, age):
 
 profile(age=25, name="Alice")
 ```
-
----
-
-## 🔹 Arbitrary Arguments
-
-### `*args` – Multiple Positional Arguments
-
-```python
-def total(*numbers):
-    return sum(numbers)
-
-print(total(1, 2, 3))  # 6
-```
-
-### `**kwargs` – Multiple Keyword Arguments
-
-```python
-def display_info(**info):
-    for key, value in info.items():
-        print(f"{key}: {value}")
-
-display_info(name="John", age=30)
-```
-
 ---
 
 ## 🧠 Function Scope
@@ -999,7 +975,7 @@ print(square(4))  # 16
 
 ---
 
-## 29. *args and **kwargs
+## 26. *args and **kwargs
 
 ### ⭐ `*args` and `**kwargs` in Python
 
@@ -1091,47 +1067,322 @@ kwargs = {'x': 10, 'y': 20}
 
 ---
 
-## 30. return Statement
+## 27. return Statement
 
-```python
-def square(x):
-    return x * x
+The `return` statement is used in a function to **send a value back** to the caller.
+It also **ends** the function's execution.
 
-print(square(4))       # 16
-```
 ---
 
-### 31. File Reading (`r`)
-
-Open a file to read its content.
+## 🔹 Basic Syntax
 
 ```python
-with open('file.txt', 'r') as file:
+def function_name():
+    return value
+```
+
+---
+
+## ✅ Example 1: Return a Value
+
+```python
+def square(num):
+    return num * num
+
+result = square(4)
+print(result)  # 16
+```
+
+---
+
+## ✅ Example 2: Return Multiple Values
+
+```python
+def get_info():
+    name = "Alice"
+    age = 25
+    return name, age
+
+n, a = get_info()
+print(n)  # Alice
+print(a)  # 25
+```
+
+Returned values are packaged as a **tuple**:
+
+```python
+# Same as:
+info = get_info()
+print(info)  # ('Alice', 25)
+```
+
+---
+
+## 🔹 Without a `return`
+
+If no `return` is used, the function returns `None` by default:
+
+```python
+def say_hello():
+    print("Hello")
+
+result = say_hello()  # Prints: Hello
+print(result)         # None
+```
+
+---
+
+## 🔹 Using `return` to End a Function Early
+
+```python
+def check_even(n):
+    if n % 2 == 0:
+        return True
+    return False
+```
+
+---
+
+## 🧠 Summary
+
+| Purpose of `return`     | Behavior                   |
+| ----------------------- | -------------------------- |
+| Return a single value   | `return x`                 |
+| Return multiple values  | `return x, y, z` → tuple   |
+| No return statement     | Returns `None`             |
+| Ends function execution | Function stops at `return` |
+
+---
+
+### 28. File Reading (`r`)
+
+### 📂 File Reading in Python (`'r'` mode)
+
+The `'r'` mode is used to **read data from a file** in Python.
+This is the **default** mode when opening a file.
+
+---
+
+## 🔹 Basic Syntax
+
+```python
+file = open("filename.txt", "r")
+# or simply:
+file = open("filename.txt")
+
+# Read file content
+content = file.read()
+
+# Always close the file
+file.close()
+```
+
+---
+
+## ✅ Example
+
+```python
+file = open("example.txt", "r")
+
+print(file.read())
+
+file.close()
+```
+
+---
+
+## 🔹 Best Practice: `with` Statement
+
+Automatically handles file closing:
+
+```python
+with open("example.txt", "r") as file:
     content = file.read()
-print(content)
+    print(content)
 ```
 
 ---
 
-### 32. File Writing (`w`)
+## 🔹 Reading Methods
 
-Open a file to write data (overwrites existing).
+| Method        | Description                           |
+| ------------- | ------------------------------------- |
+| `read()`      | Reads the **entire file** as a string |
+| `readline()`  | Reads **one line** at a time          |
+| `readlines()` | Reads **all lines** into a list       |
+
+### Example:
 
 ```python
-with open('file.txt', 'w') as file:
-    file.write("Hello World")
+with open("example.txt", "r") as f:
+    print(f.readline())   # Reads first line
+    print(f.readlines())  # Reads remaining lines as list
 ```
 
 ---
 
-### 33. Append to File (`a`)
-
-Open a file to add data at the end.
+## 🔹 Looping Through Lines
 
 ```python
-with open('file.txt', 'a') as file:
-    file.write("\nNew line")
+with open("example.txt", "r") as f:
+    for line in f:
+        print(line.strip())  # strip() removes \n
 ```
+
+---
+
+## 🔍 What if File Doesn't Exist?
+
+Opening a non-existent file in `'r'` mode causes an error:
+
+```python
+with open("missing.txt", "r") as f:
+    # FileNotFoundError
+```
+
+Handle with `try` block:
+
+```python
+try:
+    with open("missing.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File not found!")
+```
+---
+
+### 29. File Writing (`w`)
+
+The `'w'` mode is used to **write data to a file**.
+It **creates** the file if it doesn't exist, and **overwrites** it if it does.
+
+---
+
+## 🔹 Basic Syntax
+
+```python
+file = open("filename.txt", "w")
+file.write("Hello, world!")
+file.close()
+```
+
+---
+
+## ✅ Example
+
+```python
+with open("output.txt", "w") as f:
+    f.write("This is line 1.\n")
+    f.write("This is line 2.\n")
+```
+
+📁 This will create or overwrite `output.txt` with:
+
+```
+This is line 1.
+This is line 2.
+```
+
+---
+
+## ⚠️ Overwriting Behavior
+
+```python
+with open("data.txt", "w") as f:
+    f.write("First write.\n")
+
+# Opening in 'w' mode again overwrites it:
+with open("data.txt", "w") as f:
+    f.write("This will erase previous content.")
+```
+
+---
+
+## 🔹 Writing Multiple Lines
+
+You can use `.writelines()` with a list of strings:
+
+```python
+lines = ["Line A\n", "Line B\n", "Line C\n"]
+with open("list_output.txt", "w") as f:
+    f.writelines(lines)
+```
+
+---
+
+## 🧠 Reminder
+
+Always use `\n` for line breaks — Python doesn't add them automatically.
+
+---
+
+## 🔄 Summary: File Modes
+
+| Mode  | Action                        |
+| ----- | ----------------------------- |
+| `'r'` | Read (file must exist)        |
+| `'w'` | Write (creates or overwrites) |
+| `'a'` | Append (adds to end of file)  |
+| `'x'` | Create (fails if file exists) |
+
+---
+
+### 30. Append to File (`a`)
+
+### 📌 Append to File in Python (`'a'` mode)
+
+The `'a'` mode is used to **append data** to the **end of an existing file** without deleting its current content.
+If the file doesn’t exist, it will be **created**.
+
+---
+
+## 🔹 Basic Syntax
+
+```python
+file = open("filename.txt", "a")
+file.write("New content\n")
+file.close()
+```
+
+---
+
+## ✅ Example
+
+```python
+with open("log.txt", "a") as f:
+    f.write("Log entry 1\n")
+    f.write("Log entry 2\n")
+```
+
+Each time you run this code, it will **add** more lines at the end of `log.txt`.
+
+---
+
+## 🔹 Appending Multiple Lines
+
+```python
+lines = ["Line A\n", "Line B\n"]
+with open("notes.txt", "a") as f:
+    f.writelines(lines)
+```
+
+---
+
+## 🧠 Tip: Always Use `\n` for New Lines
+
+Python’s `write()` and `writelines()` won’t add line breaks automatically.
+You must include `\n` at the end of each line yourself.
+
+---
+
+## 🔄 Compare File Modes
+
+| Mode  | Description                   |
+| ----- | ----------------------------- |
+| `'r'` | Read (file must exist)        |
+| `'w'` | Write (overwrites file)       |
+| `'a'` | Append (adds to end of file)  |
+| `'x'` | Create (fails if file exists) |
 
 ---
 
