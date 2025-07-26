@@ -1,0 +1,104 @@
+### 🤖 SMOTE (Synthetic Minority Over-sampling Technique)
+
+**SMOTE** is a popular technique for **balancing imbalanced datasets** by creating **synthetic samples** of the minority class, instead of just duplicating existing ones.
+
+---
+
+## 📌 Why Use SMOTE?
+
+* Avoids overfitting that happens with random oversampling
+* Improves model generalization
+* Creates more **diverse** synthetic data points
+
+---
+
+## 🔧 How SMOTE Works (Conceptually)
+
+1. For each minority class sample:
+2. Find its *k* nearest minority neighbors
+3. Randomly choose one of those neighbors
+4. Create a new synthetic point **between** the original and the neighbor
+
+---
+
+## ✅ When to Use
+
+* With **numerical data**
+* Before model training, **after splitting** into train/test
+* Combine with **undersampling** for better results
+
+---
+
+## 🛠️ How to Use SMOTE in Python
+
+### Step-by-Step Example:
+
+```python
+from imblearn.over_sampling import SMOTE
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_classification
+
+# 1. Create or load imbalanced data
+X, y = make_classification(n_samples=1000, n_features=10,
+                           n_classes=2, weights=[0.9, 0.1],
+                           random_state=42)
+
+# 2. Split before applying SMOTE
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2)
+
+# 3. Apply SMOTE
+smote = SMOTE(random_state=42)
+X_resampled, y_resampled = smote.fit_resample(X_train, y_train)
+
+# 4. Train a model
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier()
+clf.fit(X_resampled, y_resampled)
+
+# 5. Evaluate
+from sklearn.metrics import classification_report
+y_pred = clf.predict(X_test)
+print(classification_report(y_test, y_pred))
+```
+
+---
+
+## 📊 Check Class Distribution
+
+```python
+import numpy as np
+print("Before:", np.bincount(y_train))
+print("After:", np.bincount(y_resampled))
+```
+
+---
+
+## ⚠️ Notes
+
+| Caution                          | Tip                                         |
+| -------------------------------- | ------------------------------------------- |
+| Only apply SMOTE on training set | Never oversample the test set!              |
+| For categorical variables        | Use **SMOTENC** or convert to numeric first |
+| Too many features?               | Try **k-means SMOTE** or **ADASYN**         |
+
+---
+
+## 🔁 Variants of SMOTE
+
+| Variant             | Description                          |
+| ------------------- | ------------------------------------ |
+| **SMOTENC**         | For mixed numeric + categorical data |
+| **BorderlineSMOTE** | Focus on borderline examples         |
+| **ADASYN**          | Focus more on difficult samples      |
+| **SVMSMOTE**        | Use SVM to find support vectors      |
+
+---
+
+## 🧠 Summary
+
+| Step                 | Code Snippet                               |
+| -------------------- | ------------------------------------------ |
+| Import SMOTE         | `from imblearn.over_sampling import SMOTE` |
+| Apply it             | `smote.fit_resample(X, y)`                 |
+| Use on training only | `train_test_split` before SMOTE            |
+
