@@ -572,56 +572,522 @@ if "apple" in fruits:
 ```
 ---
 
-## 25. Tuple
+## 22. Tuple
+
+A **tuple** is a collection data type in Python that is:
+
+* **Ordered**
+* **Immutable** (cannot be changed after creation)
+* Allows **duplicates**
+* Can store **mixed data types**
+
+---
+
+## 🔹 Creating a Tuple
 
 ```python
-colors = ("red", "green")
-print(colors[0])       # 'red'
+my_tuple = (1, 2, 3)
+names = ("Alice", "Bob", "Charlie")
+mixed = (1, "two", 3.0, True)
+single = (5,)      # Note the comma – needed for single-item tuple
+empty = ()         # Empty tuple
 ```
 
 ---
 
-## 26. Set
+## 🔹 Accessing Tuple Elements
 
 ```python
-nums = {1, 2, 2, 3}
-print(nums)            # {1, 2, 3}
+print(my_tuple[0])     # 1
+print(my_tuple[-1])    # 3
 ```
 
 ---
 
-## 27. Dictionary
+## 🔹 Tuple Slicing
 
 ```python
-person = {"name": "Alice", "age": 30}
-print(person["name"])  # Alice
+print(my_tuple[1:])    # (2, 3)
+print(my_tuple[:2])    # (1, 2)
 ```
 
 ---
 
-## 28. Function
+## 🔒 Tuples Are Immutable
+
+You **cannot modify**, **append**, or **remove** elements:
+
+```python
+# my_tuple[0] = 10   ❌ TypeError
+# my_tuple.append(4) ❌ AttributeError
+```
+
+But you can **reassign** the entire tuple:
+
+```python
+my_tuple = (4, 5, 6)
+```
+
+---
+
+## 🔁 Looping Through a Tuple
+
+```python
+for item in my_tuple:
+    print(item)
+```
+
+---
+
+## 🔹 Tuple Methods
+
+Tuples have **limited methods**:
+
+| Method     | Description                       |
+| ---------- | --------------------------------- |
+| `count(x)` | Counts how many times `x` appears |
+| `index(x)` | Returns the index of first `x`    |
+
+```python
+nums = (1, 2, 2, 3)
+print(nums.count(2))  # 2
+print(nums.index(3))  # 3
+```
+
+---
+
+## 🔁 Tuple Packing & Unpacking
+
+```python
+# Packing
+person = ("Alice", 25, "Engineer")
+
+# Unpacking
+name, age, job = person
+print(name)  # Alice
+print(age)   # 25
+```
+---
+
+## 23. Set
+
+A **set** is a built-in Python data type used to store **unordered**, **unique** items.
+It's useful for removing duplicates and performing **mathematical set operations** like union, intersection, etc.
+
+---
+
+## 🔹 Characteristics of Sets
+
+* ✅ **Unordered** (no index)
+* ✅ **Mutable** (can add/remove elements)
+* ✅ **No duplicates allowed**
+* ❌ **Cannot access by index**
+* ✅ **Fast membership testing**
+
+---
+
+## 🔹 Creating a Set
+
+```python
+my_set = {1, 2, 3}
+empty_set = set()  # NOT {} — that creates a dict
+mixed_set = {1, "two", 3.0}
+```
+
+---
+
+## 🔹 Duplicate Values Are Ignored
+
+```python
+s = {1, 2, 2, 3}
+print(s)  # Output: {1, 2, 3}
+```
+
+---
+
+## 🔹 Adding and Removing Elements
+
+```python
+s = {1, 2}
+
+s.add(3)           # {1, 2, 3}
+s.remove(1)        # {2, 3}
+s.discard(5)       # No error if 5 not found
+s.clear()          # Empty the set
+```
+
+---
+
+## 🔹 Set Operations
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)   # Union → {1, 2, 3, 4, 5}
+print(a & b)   # Intersection → {3}
+print(a - b)   # Difference → {1, 2}
+print(a ^ b)   # Symmetric difference → {1, 2, 4, 5}
+```
+
+---
+
+## 🔁 Looping Through a Set
+
+```python
+for item in {"apple", "banana", "cherry"}:
+    print(item)
+```
+
+> Output order is unpredictable because sets are unordered.
+
+---
+
+## 🔍 Membership Testing (Fast)
+
+```python
+fruits = {"apple", "banana"}
+print("apple" in fruits)     # True
+print("mango" not in fruits) # True
+```
+
+---
+
+## 🆚 Set vs List vs Tuple
+
+| Feature    | List (`[]`) | Tuple (`()`) | Set (`{}`)    |
+| ---------- | ----------- | ------------ | ------------- |
+| Ordered    | ✅           | ✅            | ❌             |
+| Mutable    | ✅           | ❌            | ✅             |
+| Duplicates | ✅ Allowed   | ✅ Allowed    | ❌ Not Allowed |
+| Indexed    | ✅ Yes       | ✅ Yes        | ❌ No indexing |
+
+---
+
+## 24. Dictionary
+
+A **dictionary** is a built-in Python data type used to store **key–value pairs**.
+It is:
+
+* ✅ **Unordered** (as of Python 3.6+, insertion order is preserved)
+* ✅ **Mutable** (you can change it)
+* ✅ **Indexed by keys, not positions**
+* ❌ Keys must be **unique** and **immutable** (strings, numbers, tuples)
+
+---
+
+## 🔹 Creating a Dictionary
+
+```python
+person = {
+    "name": "Alice",
+    "age": 25,
+    "is_student": True
+}
+```
+
+Or using the `dict()` constructor:
+
+```python
+person = dict(name="Bob", age=30)
+```
+
+---
+
+## 🔹 Accessing Values
+
+```python
+print(person["name"])        # Alice
+print(person.get("age"))     # 25
+print(person.get("email"))   # None (safe way to access)
+```
+
+---
+
+## 🔹 Adding / Updating Items
+
+```python
+person["email"] = "alice@example.com"  # Add
+person["age"] = 26                     # Update
+```
+
+---
+
+## 🔹 Removing Items
+
+```python
+person.pop("age")         # Removes 'age'
+del person["is_student"]  # Removes 'is_student'
+person.clear()            # Clears the entire dictionary
+```
+
+---
+
+## 🔹 Looping Through a Dictionary
+
+```python
+for key in person:
+    print(key, person[key])
+
+# Or:
+for key, value in person.items():
+    print(key, value)
+```
+
+---
+
+## 🔹 Dictionary Methods
+
+| Method          | Description                              |
+| --------------- | ---------------------------------------- |
+| `get(key)`      | Returns value or `None` if key not found |
+| `keys()`        | Returns a view of all keys               |
+| `values()`      | Returns a view of all values             |
+| `items()`       | Returns a view of key–value pairs        |
+| `update(dict2)` | Merges `dict2` into current dictionary   |
+| `pop(key)`      | Removes key and returns its value        |
+| `clear()`       | Empties the dictionary                   |
+
+---
+
+## ✅ Example
+
+```python
+student = {
+    "name": "John",
+    "marks": 85,
+    "passed": True
+}
+
+print(student["marks"])          # 85
+student["marks"] += 5            # Update
+print(student.get("age", "N/A")) # N/A
+```
+
+---
+
+## 🧠 Nested Dictionary
+
+```python
+users = {
+    "user1": {"name": "Alice", "age": 25},
+    "user2": {"name": "Bob", "age": 30}
+}
+
+print(users["user1"]["name"])  # Alice
+```
+---
+
+## 25. Function
+
+A **function** is a reusable block of code that performs a specific task.
+Functions help make code **modular**, **readable**, and **easy to maintain**.
+
+---
+
+## 🔹 Defining a Function
+
+```python
+def function_name():
+    # code block
+```
+
+### ✅ Example:
+
+```python
+def greet():
+    print("Hello, world!")
+
+greet()  # Call the function
+```
+
+---
+
+## 🔹 Function with Parameters
 
 ```python
 def greet(name):
-    print(f"Hello, {name}")
+    print("Hello,", name)
 
-greet("Bob")           # Hello, Bob
+greet("Alice")  # Output: Hello, Alice
+```
+
+---
+
+## 🔹 Function with Return Value
+
+```python
+def add(a, b):
+    return a + b
+
+result = add(3, 5)
+print(result)  # 8
+```
+
+---
+
+## 🔹 Default Parameters
+
+```python
+def greet(name="Guest"):
+    print("Hello,", name)
+
+greet()         # Hello, Guest
+greet("Bob")    # Hello, Bob
+```
+
+---
+
+## 🔹 Keyword Arguments
+
+```python
+def profile(name, age):
+    print(f"Name: {name}, Age: {age}")
+
+profile(age=25, name="Alice")
+```
+
+---
+
+## 🔹 Arbitrary Arguments
+
+### `*args` – Multiple Positional Arguments
+
+```python
+def total(*numbers):
+    return sum(numbers)
+
+print(total(1, 2, 3))  # 6
+```
+
+### `**kwargs` – Multiple Keyword Arguments
+
+```python
+def display_info(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+display_info(name="John", age=30)
+```
+
+---
+
+## 🧠 Function Scope
+
+* **Local Variable**: Defined inside a function
+* **Global Variable**: Defined outside all functions
+
+```python
+x = 10  # Global
+
+def show():
+    x = 5  # Local
+    print(x)
+
+show()     # 5
+print(x)   # 10
+```
+
+---
+
+## 🧪 Lambda Function (Anonymous Function)
+
+```python
+square = lambda x: x * x
+print(square(4))  # 16
 ```
 
 ---
 
 ## 29. *args and **kwargs
 
+### ⭐ `*args` and `**kwargs` in Python
+
+They allow you to **pass a variable number of arguments** to a function.
+
+---
+
+## 🔹 `*args` (Non-keyword arguments)
+
+* Stands for "**arguments**"
+* Collects extra **positional arguments** as a **tuple**
+
+### ✅ Example:
+
 ```python
-def example(*args, **kwargs):
+def add_numbers(*args):
     print(args)
+    return sum(args)
+
+print(add_numbers(1, 2, 3))   # (1, 2, 3) → 6
+```
+
+You can loop through `args`:
+
+```python
+def show_names(*args):
+    for name in args:
+        print("Hello", name)
+
+show_names("Alice", "Bob", "Charlie")
+```
+
+---
+
+## 🔹 `**kwargs` (Keyword arguments)
+
+* Stands for "**keyword arguments**"
+* Collects extra **named arguments** into a **dictionary**
+
+### ✅ Example:
+
+```python
+def show_info(**kwargs):
     print(kwargs)
 
-example(1, 2, name="Alice")
-# Output:
-# (1, 2)
-# {'name': 'Alice'}
+show_info(name="Alice", age=30)
+# Output: {'name': 'Alice', 'age': 30}
 ```
+
+You can loop through `kwargs`:
+
+```python
+def display_details(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key} = {value}")
+
+display_details(name="Bob", course="Python", level="Beginner")
+```
+
+---
+
+## 🔹 Using Both Together
+
+```python
+def demo(a, *args, **kwargs):
+    print("a =", a)
+    print("args =", args)
+    print("kwargs =", kwargs)
+
+demo(1, 2, 3, x=10, y=20)
+```
+
+**Output:**
+
+```
+a = 1
+args = (2, 3)
+kwargs = {'x': 10, 'y': 20}
+```
+
+---
+
+## 🔁 When to Use
+
+| Use this   | When                                                            |
+| ---------- | --------------------------------------------------------------- |
+| `*args`    | You don’t know how many **positional** arguments will be passed |
+| `**kwargs` | You don’t know how many **keyword** arguments will be passed    |
 
 ---
 
