@@ -754,31 +754,192 @@ print(True != False)       # True
 
 ## 13. Logical Operators
 
+**Logical operators** are used to combine multiple **conditions (Boolean expressions)** and return `True` or `False`.
+
+---
+
+## 🔹 Logical Operators List
+
+| Operator | Description                             | Example            | Result     |
+| -------- | --------------------------------------- | ------------------ | ---------- |
+| `and`    | True if **both** conditions are True    | `x > 5 and x < 10` | True/False |
+| `or`     | True if **at least one** is True        | `x < 0 or x > 100` | True/False |
+| `not`    | Inverts the result (True → False, etc.) | `not(x > 5)`       | True/False |
+
+---
+
+## ✅ Examples
+
 ```python
-True and False   # False
-True or False    # True
-not True         # False
+x = 7
+
+print(x > 5 and x < 10)   # True
+print(x < 5 or x > 10)    # False
+print(not(x == 7))        # False
 ```
+
+---
+
+## 🧠 Used in Conditions
+
+```python
+age = int(input("Enter your age: "))
+has_id = input("Do you have ID? (yes/no): ").lower() == "yes"
+
+if age >= 18 and has_id:
+    print("Access granted.")
+else:
+    print("Access denied.")
+```
+
+---
+
+## 🔍 Truth Table (for `and` / `or`)
+
+### `and`
+
+| A     | B     | A and B |
+| ----- | ----- | ------- |
+| True  | True  | True    |
+| True  | False | False   |
+| False | True  | False   |
+| False | False | False   |
+
+### `or`
+
+| A     | B     | A or B |
+| ----- | ----- | ------ |
+| True  | True  | True   |
+| True  | False | True   |
+| False | True  | True   |
+| False | False | False  |
 
 ---
 
 ## 14. Membership Operators
 
+**Membership operators** are used to test whether a **value exists** in a **sequence** (like a string, list, tuple, or set).
+
+---
+
+## 🔹 Operators
+
+| Operator | Description                        | Example              | Result |
+| -------- | ---------------------------------- | -------------------- | ------ |
+| `in`     | Returns `True` if value is present | `"a" in "apple"`     | `True` |
+| `not in` | Returns `True` if value is absent  | `"x" not in "apple"` | `True` |
+
+---
+
+## ✅ Examples with Strings
+
 ```python
-'a' in "apple"       # True
-3 not in [1, 2, 4]   # True
+word = "Python"
+
+print("P" in word)       # True
+print("y" in word)       # True
+print("z" in word)       # False
+print("on" in word)      # True (checks substring)
 ```
 
 ---
 
-## 15. Identity Operators
+## ✅ Examples with Lists
 
 ```python
-a = [1, 2]
-b = a
-a is b              # True
-a is not [1, 2]     # True
+fruits = ["apple", "banana", "cherry"]
+
+print("apple" in fruits)       # True
+print("grape" not in fruits)   # True
 ```
+
+---
+
+## ✅ Examples with Tuples & Sets
+
+```python
+nums = (1, 2, 3)
+print(2 in nums)  # True
+
+unique = {10, 20, 30}
+print(40 not in unique)  # True
+```
+
+---
+
+## 🔍 Use in `if` Statements
+
+```python
+colors = ["red", "green", "blue"]
+color = input("Enter a color: ").lower()
+
+if color in colors:
+    print("Color is available!")
+else:
+    print("Color not found.")
+```
+---
+
+## 15. Identity Operators
+
+**Identity operators** are used to compare the **memory location** of two objects — whether they are actually the **same object**, not just equal in value.
+
+---
+
+## 🔹 Operators
+
+| Operator | Description                                                   | Example      | Result       |
+| -------- | ------------------------------------------------------------- | ------------ | ------------ |
+| `is`     | Returns `True` if both variables **point to the same object** | `x is y`     | `True/False` |
+| `is not` | Returns `True` if they **do not point to the same object**    | `x is not y` | `True/False` |
+
+---
+
+## ✅ Examples
+
+```python
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a == b)     # True (same values)
+print(a is b)     # True (same object)
+
+print(a == c)     # True (same values)
+print(a is c)     # False (different objects)
+```
+
+---
+
+## 🧠 Why It Matters
+
+* `==` → checks **value equality**
+* `is` → checks **object identity** (same memory address)
+
+---
+
+## 🔍 Example with `None`
+
+```python
+x = None
+
+if x is None:
+    print("x is None")        # ✅ Recommended way
+```
+
+> Avoid writing `x == None`; use `x is None` for checking `None` identity.
+
+---
+
+## 💡 Use Case
+
+```python
+x = 5
+y = 5
+print(x is y)   # True (small integers are cached in Python)
+```
+
+> But this may not hold true for larger or more complex objects.
 
 ---
 
