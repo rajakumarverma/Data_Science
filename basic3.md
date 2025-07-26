@@ -1,0 +1,440 @@
+### 34. Try/Except
+
+Handle errors gracefully to avoid crashes.
+
+```python
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+```
+
+---
+
+### 35. Finally Clause
+
+Code that runs no matter what (after try/except).
+
+```python
+try:
+    f = open('file.txt')
+finally:
+    f.close()
+```
+
+---
+
+### 36. Raise Exception
+
+Manually trigger an error.
+
+```python
+def check_age(age):
+    if age < 18:
+        raise ValueError("Too young!")
+check_age(15)  # Raises ValueError
+```
+
+---
+
+### 37. Class & Object
+
+Create your own data types (blueprints).
+
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+p = Person("Alice")
+print(p.name)  # Alice
+```
+
+---
+
+### 38. Class Methods
+
+Methods that act on the class, not instance.
+
+```python
+class Person:
+    count = 0
+
+    @classmethod
+    def increment(cls):
+        cls.count += 1
+
+Person.increment()
+print(Person.count)  # 1
+```
+
+---
+
+### 39. Inheritance
+
+Create a new class based on an existing one.
+
+```python
+class Animal:
+    def speak(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof")
+
+d = Dog()
+d.speak()  # Woof
+```
+
+---
+
+### 40. `super()`
+
+Call parent class methods inside child classes.
+
+```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+```
+
+---
+
+### 41. `__str__()` Method
+
+Defines how object prints as a string.
+
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return f"Person: {self.name}"
+
+p = Person("Alice")
+print(p)  # Person: Alice
+```
+
+---
+
+### 42. Importing Modules
+
+Use code from other files/libraries.
+
+```python
+import math
+print(math.sqrt(16))  # 4.0
+```
+
+---
+
+### 43. `from ... import`
+
+Import specific parts of a module.
+
+```python
+from math import pi
+print(pi)  # 3.14159...
+```
+
+---
+
+### 44. Creating Modules
+
+Save functions/classes in `.py` files and import them.
+
+```python
+# mymodule.py
+def greet():
+    print("Hello")
+
+# another_file.py
+import mymodule
+mymodule.greet()  # Hello
+```
+
+---
+
+### 45. pip / Package Install
+
+Install third-party packages.
+
+```bash
+pip install requests
+```
+
+---
+
+### 46. Lambda Function
+
+Anonymous, one-line functions.
+
+```python
+square = lambda x: x * x
+print(square(5))  # 25
+```
+
+---
+
+### 47. Map Function
+
+Apply a function to all items in a list.
+
+```python
+nums = [1, 2, 3]
+squares = list(map(lambda x: x**2, nums))
+print(squares)  # [1, 4, 9]
+```
+
+---
+
+### 48. Filter Function
+
+Filter items by a condition.
+
+```python
+nums = [1, 2, 3, 4]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)  # [2, 4]
+```
+
+---
+
+### 49. Reduce Function
+
+Apply a rolling computation to a list.
+
+```python
+from functools import reduce
+nums = [1, 2, 3, 4]
+total = reduce(lambda x, y: x + y, nums)
+print(total)  # 10
+```
+
+---
+
+### 50. List Comprehension
+
+Create lists easily and readably.
+
+```python
+squares = [x**2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+```
+
+---
+
+### 51. Dictionary Comprehension
+
+Create dictionaries in one line.
+
+```python
+squares = {x: x**2 for x in range(5)}
+print(squares)  # {0:0,1:1,2:4,3:9,4:16}
+```
+
+---
+
+### 52. Generator Function
+
+Generate items one by one, saving memory.
+
+```python
+def count_up_to(n):
+    count = 1
+    while count <= n:
+        yield count
+        count += 1
+
+for num in count_up_to(3):
+    print(num)
+# 1
+# 2
+# 3
+```
+
+---
+
+### 53. Iterators
+
+Objects you can loop over.
+
+```python
+nums = [1, 2, 3]
+it = iter(nums)
+print(next(it))  # 1
+print(next(it))  # 2
+```
+
+---
+
+### 54. Decorators
+
+Modify functions without changing them.
+
+```python
+def decorator(func):
+    def wrapper():
+        print("Before")
+        func()
+        print("After")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hello")
+
+say_hello()
+# Before
+# Hello
+# After
+```
+
+---
+
+### 55. Regular Expressions
+
+Pattern matching in strings (import `re`).
+
+```python
+import re
+pattern = r'\d+'
+result = re.findall(pattern, 'There are 12 apples and 34 oranges')
+print(result)  # ['12', '34']
+```
+
+---
+
+### 56. JSON Parsing
+
+Work with JSON data.
+
+```python
+import json
+data = '{"name": "Alice", "age": 30}'
+parsed = json.loads(data)
+print(parsed['name'])  # Alice
+```
+
+---
+
+### 57. Date & Time
+
+Work with dates and times.
+
+```python
+from datetime import datetime
+now = datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M:%S"))
+```
+
+---
+
+### 58. Math / Random Lib
+
+Useful math functions and random numbers.
+
+```python
+import math, random
+print(math.pi)          # 3.141592653589793
+print(random.randint(1, 10))  # random number 1-10
+```
+
+---
+
+### 59. SQLite DB Access
+
+Basic database interaction.
+
+```python
+import sqlite3
+conn = sqlite3.connect(':memory:')
+c = conn.cursor()
+c.execute('CREATE TABLE test(id INTEGER)')
+conn.close()
+```
+
+---
+
+### 60. Virtual Env
+
+Isolate project dependencies (run in terminal).
+
+```bash
+python -m venv env
+source env/bin/activate  # Linux/Mac
+env\Scripts\activate     # Windows
+```
+
+---
+
+### 61. Web Scraping
+
+Extract data from websites.
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get('https://example.com')
+soup = BeautifulSoup(r.text, 'html.parser')
+print(soup.title.text)
+```
+
+---
+
+### 62. Pandas (Basic)
+
+Powerful data analysis tool.
+
+```python
+import pandas as pd
+df = pd.DataFrame({'A':[1,2], 'B':[3,4]})
+print(df)
+```
+
+---
+
+### 63. NumPy (Basic)
+
+Efficient numerical computing.
+
+```python
+import numpy as np
+arr = np.array([1, 2, 3])
+print(arr * 2)  # [2 4 6]
+```
+
+---
+
+### 64. Docstrings
+
+Documentation inside functions/classes.
+
+```python
+def greet():
+    """Prints a greeting message."""
+    print("Hello")
+
+print(greet.__doc__)  # Prints docstring
+```
+
+---
+
+### 65. `__name__ == "__main__"`
+
+Run code only if script is executed directly.
+
+```python
+def main():
+    print("Run directly")
+
+if __name__ == "__main__":
+    main()
+```
