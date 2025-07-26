@@ -127,3 +127,63 @@ Scales of measurement define the nature of data and guide proper statistical ana
 | **Ratio**            | Similar to interval but with a true zero point.                                | Weight, Height, Income                | Equal intervals, meaningful ratios         |
 
 ---
+
+### 🌳 **Complete Tree Hierarchy of Statistics**
+
+```
+Statistics
+├── 1. Descriptive Statistics
+│   ├── 1.1 Measures of Central Tendency
+│   │   ├── Mean — (e.g., Average income of employees)
+│   │   ├── Median — (e.g., Median house price in a city)
+│   │   └── Mode — (e.g., Most common shoe size sold)
+│   ├── 1.2 Measures of Dispersion
+│   │   ├── Range — (e.g., Max–min temperatures this week)
+│   │   ├── Variance — (e.g., Variability in monthly sales)
+│   │   ├── Standard Deviation — (e.g., Spread of student marks)
+│   │   └── Interquartile Range (IQR) — (e.g., Salary spread)
+│   ├── 1.3 Measures of Position
+│   │   ├── Percentiles — (e.g., 90th percentile in exam)
+│   │   └── Quartiles — (e.g., Q1 and Q3 of earnings data)
+│   └── 1.4 Data Visualization
+│       ├── Histogram — (e.g., Age distribution of users)
+│       ├── Bar Chart — (e.g., Sales per product category)
+│       ├── Pie Chart — (e.g., Market share of brands)
+│       ├── Boxplot — (e.g., Compare incomes across regions)
+│       └── Line Graph — (e.g., Stock prices over time)
+
+├── 2. Inferential Statistics
+│   ├── 2.1 Estimation
+│   │   ├── Point Estimation — (e.g., Estimate average height)
+│   │   └── Confidence Interval — (e.g., 95% CI of blood pressure)
+│   ├── 2.2 Hypothesis Testing
+│   │   ├── z-test — (e.g., Known population SD, large sample)
+│   │   ├── t-test — (e.g., Compare test scores of two classes)
+│   │   ├── ANOVA — (e.g., Compare 3 diets for weight loss)
+│   │   ├── Chi-square Test — (e.g., Gender vs. brand preference)
+│   │   └── p-value — (e.g., p < 0.05 = statistically significant)
+│   ├── 2.3 Correlation and Regression
+│   │   ├── Pearson/Spearman Correlation — (e.g., Hours studied vs. score)
+│   │   └── Linear Regression
+│   │       ├── Simple — (e.g., Predict sales from ad budget)
+│   │       └── Multiple — (e.g., Predict house price from size & location)
+│   ├── 2.4 Probability Distributions
+│   │   ├── Discrete Distributions
+│   │   │   ├── Binomial — (e.g., 3 heads in 5 coin tosses)
+│   │   │   └── Poisson — (e.g., Calls per hour at call center)
+│   │   └── Continuous Distributions
+│   │       ├── Normal — (e.g., Human height)
+│   │       ├── t-distribution — (e.g., Small sample mean estimation)
+│   │       ├── Exponential — (e.g., Time between arrivals)
+│   │       └── Uniform — (e.g., Random number between 0–1)
+│   ├── 2.5 Nonparametric Tests
+│   │   ├── Mann-Whitney U test — (e.g., Compare satisfaction between 2 groups)
+│   │   ├── Kruskal-Wallis test — (e.g., Compare ranks in 3+ groups)
+│   │   └── Wilcoxon signed-rank test — (e.g., Before/after symptom scores)
+│   └── 2.6 Bayesian Statistics
+│       ├── Prior Distribution — (e.g., Prior disease risk)
+│       ├── Posterior Distribution — (e.g., Updated risk after test result)
+│       └── Bayes’ Theorem — (e.g., Conditional probability in diagnosis)
+```
+
+---
