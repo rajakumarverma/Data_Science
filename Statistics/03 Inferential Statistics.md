@@ -1,127 +1,21 @@
-### 📈 Inferential Statistics — Full Overview
+### 📘 Statistics Concepts Explained Simply (67–81)
 
-**Inferential Statistics** is the branch of statistics that allows you to:
-
-> 🔍 **Draw conclusions about a population** based on a **sample** of data.
-
-It uses **probability theory** to make educated guesses, predictions, and decisions from incomplete data.
-
----
-
-## 🌳 Branch Hierarchy
-
-```
-Inferential Statistics
-├── Estimation
-│   ├── Point Estimation
-│   └── Interval Estimation (Confidence Intervals)
-│
-├── Hypothesis Testing
-│   ├── Null & Alternative Hypotheses
-│   ├── Test Statistics (t, z, chi-square)
-│   └── p-values & Significance
-│
-├── Probability Distributions
-│   ├── Normal Distribution
-│   ├── Binomial, Poisson, etc.
-│
-└── Regression & Correlation
-    ├── Linear Regression
-    └── Pearson/Spearman Correlation
-```
+| #   | Concept                               | What It Is                                                                                                                          | Formula                                                                                 | Simple Example (for a child)                                                                                                                                                  |                   |                                                                                                                               |
+| --- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 1.  | Hypothesis Testing Basics             | A method to make decisions using data. We test an assumption (hypothesis) about a population.                                       | - Null Hypothesis (H₀): No effect<br> - Alternative Hypothesis (H₁): There is an effect | You think your red toy car is faster than the blue one. You test both cars to see if the red one really is faster or if it's just luck.                                       |                   |                                                                                                                               |
+| 2.  | P-value in Hypothesis Testing         | Probability that your observed results are due to chance. Helps decide whether to reject H₀.                                        | If p < α (0.05), reject H₀                                                              | You toss a coin 10 times and get 9 heads. You ask, “Is the coin unfair?” If the chance of this happening randomly is really low (p < 0.05), you say the coin might be unfair. |                   |                                                                                                                               |
+| 3.  | Z-test in Hypothesis Testing          | Used to test whether a sample mean is significantly different from a known population mean when population std. deviation is known. | Z = (X̄ - μ) / (σ / √n)                                                                 | If candy packs normally have 10 candies, and your pack has 12, you check if that’s a big difference using a Z-test.                                                           |                   |                                                                                                                               |
+| 4.  | Student’s t-Distribution              | A probability distribution used when the sample size is small and population std. deviation is unknown.                             | t-distribution table (varies with degrees of freedom)                                   | You only have 5 candy packs and don’t know how many candies usually come in each. You use the t-distribution to check if your pack is special.                                |                   |                                                                                                                               |
+| 5.  | T-Test and T-Statistics               | Used to compare means when σ is unknown or n is small. Types: one-sample, two-sample, paired.                                       | t = (X̄ - μ) / (s / √n)                                                                 | You try cookies from two brands and give scores. You use a t-test to check if one brand is really better, or if it's just your guess.                                         |                   |                                                                                                                               |
+| 6.  | Z-Test vs T-Test                      | Both test means, but use different conditions. Z-test is for large n and known σ. T-test is for small n or unknown σ.               | —                                                                                       | Z-test: when you ask everyone in your class. T-test: when you only ask a few friends and don't know the true average.                                                         |                   |                                                                                                                               |
+| 7.  | Type I and Type II Errors             | Mistakes in hypothesis testing:<br> - Type I: Rejecting a true H₀<br> - Type II: Not rejecting a false H₀                           | —                                                                                       | Type I: You say your toy is broken, but it's not.<br>Type II: Your toy is broken, but you think it's fine.                                                                    |                   |                                                                                                                               |
+| 8.  | Bayes’ Theorem                        | A formula that updates the probability of an event based on new evidence.                                                           | P(A                                                                                     | B) = \[P(B                                                                                                                                                                    | A) × P(A)] / P(B) | You think it might rain. Then you see dark clouds. Bayes’ helps you say: “Now it’s more likely to rain because I see clouds.” |
+| 9.  | Confidence Interval & Margin of Error | An interval estimate around a sample mean that likely contains the true population mean.                                            | CI = X̄ ± Z \* (σ / √n)                                                                 | You say: “I think I have 10 candies, but maybe between 8 and 12.” That range is your confidence interval.                                                                     |                   |                                                                                                                               |
+| 10. | Chi-Square Test                       | Tests if categorical variables are related, or if observed frequencies differ from expected ones.                                   | χ² = Σ (O - E)² / E                                                                     | You expect each face of a dice to come up the same number of times. If 6 shows more than others, the chi-square test checks if the dice is fair.                              |                   |                                                                                                                               |
+| 11. | Chi-Square Goodness of Fit            | A specific chi-square test that checks how well observed data fit a theoretical distribution.                                       | Same as above                                                                           | You expect your toy colors to be equal: red, blue, green. You check if the counts match your expectations.                                                                    |                   |                                                                                                                               |
+| 12. | What is ANOVA                         | ANOVA (Analysis of Variance) checks if 3 or more groups have different means.                                                       | F = Between Group Var. / Within Group Var.                                              | You try 3 types of juice and score them. ANOVA checks if any type is rated significantly better than the others.                                                              |                   |                                                                                                                               |
+| 13. | Assumptions of ANOVA                  | ANOVA works under these:<br>1. Normality<br>2. Equal variance<br>3. Independent samples                                             | —                                                                                       | Everyone in your group should drink the juice fairly (no cheating), and your scoring should be honest and not influenced by others.                                           |                   |                                                                                                                               |
+| 14. | Types of ANOVA                        | - **One-way ANOVA**: One factor (e.g., type of toy)<br> - **Two-way ANOVA**: Two factors (e.g., toy type and color)                 | —                                                                                       | One-way: You test different toy cars.<br>Two-way: You test cars of different brands *and* colors.                                                                             |                   |                                                                                                                               |
+| 15. | Partitioning in ANOVA                 | Breaking total variance into:<br>1. Between groups (explained)<br>2. Within groups (unexplained)                                    | SST = SSB + SSW<br> SST = Total Sum of Squares                                          | You know the total difference in juice ratings. You break it down to see how much is due to juice type vs. just random scoring.                                               |                   |                                                                                                                               |
 
 ---
-
-## 🔹 1. Estimation
-
-### a) **Point Estimation**
-
-Provides a **single value** estimate of a population parameter.
-
-> Example:
-> Estimate the **average income** of a city from a sample of 500 people.
-
-### b) **Interval Estimation (Confidence Interval)**
-
-Gives a **range** of values likely to include the population parameter.
-
-> Example:
-> "We are 95% confident that the average height is between 160–170 cm."
-
----
-
-## 🔹 2. Hypothesis Testing
-
-Used to test assumptions about a population.
-
-### Key Concepts:
-
-| Term                            | Meaning                                           |
-| ------------------------------- | ------------------------------------------------- |
-| **Null Hypothesis (H₀)**        | No effect or difference (status quo)              |
-| **Alternative Hypothesis (H₁)** | There is an effect or difference                  |
-| **p-value**                     | Probability of observing the result if H₀ is true |
-| **Significance Level (α)**      | Threshold for rejecting H₀ (usually 0.05)         |
-
-### Example:
-
-* H₀: A new drug is **not** more effective than the old one.
-* H₁: The new drug **is** more effective.
-* If `p-value < 0.05`, we reject H₀ and conclude the drug works better.
-
----
-
-## 🔹 3. Probability Distributions
-
-They describe how values are distributed.
-
-| Distribution       | When it's used                             |
-| ------------------ | ------------------------------------------ |
-| **Normal**         | Bell-shaped, many natural datasets         |
-| **Binomial**       | Yes/No outcomes over trials                |
-| **Poisson**        | Count of rare events in a fixed time/space |
-| **t-distribution** | Small samples, unknown standard deviation  |
-
----
-
-## 🔹 4. Regression & Correlation
-
-### a) **Correlation**
-
-Measures **strength and direction** of a relationship between variables.
-
-* Pearson: linear correlation (e.g., height & weight)
-* Spearman: ranked (ordinal) variables
-
-### b) **Regression**
-
-Predicts the **value of a dependent variable** using one or more independent variables.
-
-> Example: Predicting house price based on area and number of rooms.
-
----
-
-## 🧪 Real-Life Example
-
-**Problem:**
-A company wants to know if **remote work increases productivity**.
-
-**Steps:**
-
-1. Sample 100 remote and 100 office workers.
-2. Compute their average output.
-3. Use a **t-test** to compare groups.
-4. If p-value < 0.05 → conclude remote work boosts productivity.
-
----
-
-## 🧠 Summary Table
-
-| Topic               | Purpose                                   | Tool / Concept          |
-| ------------------- | ----------------------------------------- | ----------------------- |
-| Point Estimation    | Single best guess                         | Sample Mean             |
-| Confidence Interval | Range where true value lies (with % conf) | 95% CI                  |
-| Hypothesis Testing  | Test claims                               | t-test, z-test, p-value |
-| Regression          | Predict values                            | Linear regression       |
-| Correlation         | Measure relationship strength             | Pearson, Spearman       |
-
