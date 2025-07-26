@@ -1,5 +1,6 @@
 ### **Statistics : Key Concepts & Techniques**
-
+---
+Statistics is the branch of mathematics that deals with collecting, organizing, analyzing, interpreting, and presenting data. It helps us make sense of large amounts of information and draw conclusions or make decisions based on that data.
 ---
 
 ### **1. Types of Statistics**
