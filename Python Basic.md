@@ -1,7 +1,5 @@
 ## Python Basics Concepts
 
----
-
 ### 1. Variable Assignment
 
 ```python
